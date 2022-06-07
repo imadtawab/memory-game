@@ -8,6 +8,8 @@ const buttonEnd = document.querySelector("#buttonEnd");
 const failedNumber = document.querySelector(".failedNumber");
 buttonStart.onclick = function (eo) {
   if (userInput.value == "") {
+    document.querySelector(".shadow-start").remove();
+    userName.innerText = "player";
   } else {
     document.querySelector(".shadow-start").remove();
     userName.innerText = userInput.value;
@@ -47,6 +49,7 @@ block.forEach((item) => {
         last = "";
         firstBlock.classList.add("true");
         lastBlock.classList.add("true");
+        successSon()
       } else {
         wrongCounter++;
         setTimeout(() => {
@@ -56,6 +59,7 @@ block.forEach((item) => {
           wrong.innerText = wrongCounter;
           first = "";
           last = "";
+          failSon()
         }, 1000);
       }
     }
@@ -106,3 +110,12 @@ buttonEnd.onclick = function (eo) {
     });
   }, 500);
 };
+
+
+
+  function successSon(){
+  document.getElementById("success").play()
+  }
+  function failSon(){
+    document.getElementById("fail").play()
+    }
